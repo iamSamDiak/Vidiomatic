@@ -11,7 +11,7 @@
 
 ### About
 
-**Vidiomatic** is a (in progress) simple web app built with **React** that allows you to record your screen with your webcam set as PIP if pleased directly within the navigator. Convenient for presentations video, tutorials and so on...
+**Vidiomatic** is a (in progress) simple web app built with **React** that allows you to record your screen with your webcam set as PIP if pleased directly within the browser. Convenient for presentations video, tutorials and so on...
 
 https://vidiomatic.netlify.app/
 
