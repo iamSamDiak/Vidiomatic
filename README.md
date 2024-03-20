@@ -17,7 +17,7 @@ https://vidiomatic.netlify.app/
 
 ## 
 
-### How to use it
+### How to install it
 
 - #### Development Setup
 
