@@ -2,8 +2,6 @@
     <h1>Vidiomatic</h1>
 </div>
 
----
-
 <div  align="center"  style="display:flex;justify-content:center">
     <img  src="https://i.ibb.co/CW3c02R/vidiomatic.jpg"  style="width:70%">
 </div>
