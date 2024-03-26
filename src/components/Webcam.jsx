@@ -22,6 +22,8 @@ function Webcam(){
                 return "Une erreur est survenue. Veuillez réessayez ultérieurement."
             case "TypeError: videoElement.current.requestPictureInPicture is not a function":
                 return "Votre navigateur ne supporte pas PIP. Nous vous recommandons un autre navigateur comme Chrome, Edge, Opera..."
+            case "TypeError: t.current.requestPictureInPicture is not a function":
+                return "Votre navigateur ne supporte pas PIP. Nous vous recommandons un autre navigateur comme Chrome, Edge, Opera..."
             default:
                 return _err
         }
