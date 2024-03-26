@@ -22,19 +22,17 @@ function Record(){
         card.current = document.querySelector(".card")
         videoPreviewContainer.current = document.querySelector(".video-preview")
         videoPreview.current = document.querySelector(".video-preview video")
-        // load()
+        load()
 
         if (recorder.current){
             record.current.textContent = "Enregistrer"
         }
-        console.log(recorder.current)
 
     }, [])
 
     const load = async () => {
         const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd'
         const ffmpeg = ffmpegRef.current;
-        console.log(ffmpeg)
         ffmpeg.on('log', ({ message }) => {
             console.log(message);
         });
@@ -84,24 +82,33 @@ function Record(){
         
             videoBlobs.push(videoBlob);
 
-            // const blob = new Blob([mp4File], { type: 'video/mp4' });
-            // const url = URL.createObjectURL(blob);
-            // const a = document.createElement('a');
-            // a.href = url;
-            // a.download = 'video.mp4';
-            // a.click();
+            const blob = new Blob(videoBlobs, { type: 'video/mp4' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'video.mp4';
+            a.click();
 
-            const videoURL = URL.createObjectURL(new Blob(videoBlobs, { type: 'video/mp4' }));
             videoPreviewContainer.current.classList.remove("hidden")
-            videoPreview.current.src = videoURL
-
-            //console.log(videoURL)
+            videoPreview.current.src = url
+            
+            console.log(url)
         
+            
             // const ffmpeg = ffmpegRef.current;
-            // await ffmpeg.writeFile('input.mp4', await fetchFile(videoURL));
+            // await ffmpeg.writeFile('input.mp4', await fetchFile(url));
             // let time = 0
             // const timeInterval = setInterval(() => {time++}, 1000)
-            // await ffmpeg.exec(['-i', 'input.mp4', '-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '23', 'output.mp4']);
+            // await ffmpeg.exec([
+            //     '-i', 'input.mp4',
+            //     '-c:v', 'libx264',
+            //     '-preset', 'ultrafast',
+            //     '-vf', 'scale=1280:720',
+            //     '-b:v', '3000k',
+            //     '-c:a', 'copy',
+            //     '-r', '25',
+            //     'output.mp4'
+            // ]);
             // const data = await ffmpeg.readFile('output.mp4');
             // clearInterval(timeInterval)
             // console.log(time)
@@ -110,9 +117,10 @@ function Record(){
             // downloadLink.href = videoConvertedURL;
             // downloadLink.download = 'screen-recording.mp4';
             // downloadLink.click();
+            
         
-            //URL.revokeObjectURL(videoURL);
-            //URL.revokeObjectURL(videoConvertedURL);
+            // URL.revokeObjectURL(videoURL);
+            // URL.revokeObjectURL(videoConvertedURL);
         };
         
         console.log(recorder.current)
