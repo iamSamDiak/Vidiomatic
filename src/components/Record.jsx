@@ -22,7 +22,6 @@ function Record(){
         card.current = document.querySelector(".card")
         videoPreviewContainer.current = document.querySelector(".video-preview")
         videoPreview.current = document.querySelector(".video-preview video")
-        load()
 
         if (recorder.current){
             record.current.textContent = "Enregistrer"
